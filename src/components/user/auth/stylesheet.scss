@@ -1,0 +1,189 @@
+@import "../../../configs/css-configuration.scss";
+
+.ui-auth-panel {
+  .ui-auth-header {
+    a {
+      text-decoration: none;
+    }
+  }
+  .another-login-tools-panel, .another-register-tools-panel {
+    margin-top: 20px;
+    .header {
+      position: relative;
+      span {
+        background: $white;
+        display: inline-block;
+        padding: 0 10px;
+        text-transform: uppercase;
+        color: $default-text-color;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .line-over {
+        width: 100%;
+        background-image: url($mediaPath + "/images/default/line_color_1x1.png");
+        background-repeat: repeat-x;
+        background-position-y: 50%;
+      }
+
+    }
+    .tools {
+      margin: 30px 0;
+      .another-login-icon {
+        padding: 12px;
+        border-radius: 50%;
+        color: $white;
+        font-size: 30px;
+        width: 67px;
+        display: inline-block;
+      }
+      .facebook {
+        margin: 0 20px;
+        background-color: $facebook-bg-color;
+      }
+      .googleplus {
+        background-color: $google-bg-color;
+      }
+    }
+
+  }
+
+  .color-default {
+    color: $default-text-color !important;
+  }
+  .remember-me-panel {
+    padding: 10px 0;
+  }
+  .terms-and-conditions {
+    padding: 10px 0;
+    margin: auto;
+    .text-link {
+      padding-top: 2px;
+      color: $default-text-color;
+      a {
+        text-decoration: none;
+        color: $main-color;
+      }
+    }
+  }
+  .ui-button-group {
+    padding: 10px 0;
+  }
+
+  .active {
+    color: $main-color;
+    font-size: 28px;
+
+    span {
+      font-size: 34px;
+      color: $default-text-color;
+      display: inline;
+    }
+  }
+  .active:hover {
+    color: $main-color-hover;
+  }
+  a {
+    color: $default-text-color;
+    cursor: pointer;
+    text-decoration: none;
+    span {
+      color: $default-text-color;
+      display: none;
+    }
+  }
+  .content-panel {
+    padding: 70px 20px 150px 20px;
+    height: 580px;
+  }
+  .center-block {
+    text-align: center;
+    margin: auto;
+  }
+  .forgot-password {
+    font-weight: bold;
+    margin: auto;
+    display: inline-block;
+    padding-top: 8px;
+  }
+  .button {
+    border-radius: 20px !important;
+    button {
+      background-color: $main-color !important;
+      border-radius: 20px !important;
+      margin-right: 30px !important;
+    }
+
+  }
+  .ui-left-lpanel {
+    background-color: $main-color;
+    background-image: url($mediaPath + "/images/login/login_left_bg.png");
+    background-position: 10px bottom;
+    background-repeat: no-repeat;
+
+    .company-short-name {
+      color: $login-short-company-color;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    .ui-logo-panel {
+      margin-bottom: 10px;
+    }
+  }
+
+  .ui-register {
+    .checkbox-inline {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 !important;
+  }
+  .ui-auth-panel {
+    margin: 0px !important;
+    height: auto;
+    .ui-left-lpanel {
+      display: none;
+    }
+    .content-panel {
+      padding: 20px 10px 20px 10px;
+      height: auto;
+    }
+    .ui-auth-header {
+      //display: none;
+    }
+    .row {
+      width: 100%;
+      margin: 0;
+    }
+    .col-sm-6 {
+      padding: 0px;
+    }
+    .forgot-password {
+      display: none;
+    }
+    .login-button-panel {
+      float: none !important;
+    }
+
+    .login-modal-content {
+      padding: 20px;
+    }
+    .another-register-tools-panel {
+      .tools {
+        margin: 20px 0;
+      }
+    }
+    .tools {
+      .another-login-icon {
+        font-size: 26px;
+      }
+    }
+
+  }
+}

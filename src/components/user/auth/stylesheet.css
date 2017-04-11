@@ -1,0 +1,137 @@
+.ui-auth-panel .ui-auth-header a {
+  text-decoration: none; }
+
+.ui-auth-panel .another-login-tools-panel, .ui-auth-panel .another-register-tools-panel {
+  margin-top: 20px; }
+  .ui-auth-panel .another-login-tools-panel .header, .ui-auth-panel .another-register-tools-panel .header {
+    position: relative; }
+    .ui-auth-panel .another-login-tools-panel .header span, .ui-auth-panel .another-register-tools-panel .header span {
+      background: #ffffff;
+      display: inline-block;
+      padding: 0 10px;
+      text-transform: uppercase;
+      color: #7b7b7b;
+      font-weight: bold;
+      font-size: 16px; }
+    .ui-auth-panel .another-login-tools-panel .header .line-over, .ui-auth-panel .another-register-tools-panel .header .line-over {
+      width: 100%;
+      background-image: url("/media/images/default/line_color_1x1.png");
+      background-repeat: repeat-x;
+      background-position-y: 50%; }
+  .ui-auth-panel .another-login-tools-panel .tools, .ui-auth-panel .another-register-tools-panel .tools {
+    margin: 30px 0; }
+    .ui-auth-panel .another-login-tools-panel .tools .another-login-icon, .ui-auth-panel .another-register-tools-panel .tools .another-login-icon {
+      padding: 12px;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 30px;
+      width: 67px;
+      display: inline-block; }
+    .ui-auth-panel .another-login-tools-panel .tools .facebook, .ui-auth-panel .another-register-tools-panel .tools .facebook {
+      margin: 0 20px;
+      background-color: #5d84bb; }
+    .ui-auth-panel .another-login-tools-panel .tools .googleplus, .ui-auth-panel .another-register-tools-panel .tools .googleplus {
+      background-color: #dd4f43; }
+
+.ui-auth-panel .color-default {
+  color: #7b7b7b !important; }
+
+.ui-auth-panel .remember-me-panel {
+  padding: 10px 0; }
+
+.ui-auth-panel .terms-and-conditions {
+  padding: 10px 0;
+  margin: auto; }
+  .ui-auth-panel .terms-and-conditions .text-link {
+    padding-top: 2px;
+    color: #7b7b7b; }
+    .ui-auth-panel .terms-and-conditions .text-link a {
+      text-decoration: none;
+      color: #1d89e3; }
+
+.ui-auth-panel .ui-button-group {
+  padding: 10px 0; }
+
+.ui-auth-panel .active {
+  color: #1d89e3;
+  font-size: 28px; }
+  .ui-auth-panel .active span {
+    font-size: 34px;
+    color: #7b7b7b;
+    display: inline; }
+
+.ui-auth-panel .active:hover {
+  color: #289bfa; }
+
+.ui-auth-panel a {
+  color: #7b7b7b;
+  cursor: pointer;
+  text-decoration: none; }
+  .ui-auth-panel a span {
+    color: #7b7b7b;
+    display: none; }
+
+.ui-auth-panel .content-panel {
+  padding: 70px 20px 150px 20px;
+  height: 580px; }
+
+.ui-auth-panel .center-block {
+  text-align: center;
+  margin: auto; }
+
+.ui-auth-panel .forgot-password {
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+  padding-top: 8px; }
+
+.ui-auth-panel .button {
+  border-radius: 20px !important; }
+  .ui-auth-panel .button button {
+    background-color: #1d89e3 !important;
+    border-radius: 20px !important;
+    margin-right: 30px !important; }
+
+.ui-auth-panel .ui-left-lpanel {
+  background-color: #1d89e3;
+  background-image: url("/media/images/login/login_left_bg.png");
+  background-position: 10px bottom;
+  background-repeat: no-repeat; }
+  .ui-auth-panel .ui-left-lpanel .company-short-name {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 24px; }
+  .ui-auth-panel .ui-left-lpanel .ui-logo-panel {
+    margin-bottom: 10px; }
+
+.ui-auth-panel .ui-register .checkbox-inline {
+  display: inline-block;
+  width: auto; }
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 !important; }
+  .ui-auth-panel {
+    margin: 0px !important;
+    height: auto; }
+    .ui-auth-panel .ui-left-lpanel {
+      display: none; }
+    .ui-auth-panel .content-panel {
+      padding: 20px 10px 20px 10px;
+      height: auto; }
+    .ui-auth-panel .row {
+      width: 100%;
+      margin: 0; }
+    .ui-auth-panel .col-sm-6 {
+      padding: 0px; }
+    .ui-auth-panel .forgot-password {
+      display: none; }
+    .ui-auth-panel .login-button-panel {
+      float: none !important; }
+    .ui-auth-panel .login-modal-content {
+      padding: 20px; }
+    .ui-auth-panel .another-register-tools-panel .tools {
+      margin: 20px 0; }
+    .ui-auth-panel .tools .another-login-icon {
+      font-size: 26px; } }
