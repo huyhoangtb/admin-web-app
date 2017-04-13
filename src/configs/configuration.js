@@ -3,14 +3,14 @@
  */
 const mediaRoot = "/media/";
 const Configuration = {
-    autoDetectMissingMessage: true,
+  autoDetectMissingMessage: true,
 
-    media: {
-        img: {
-            path: mediaRoot + "images",
-        }
-    },
-    defaultLogo: mediaRoot + "images/default/lotus.png",
+  media: {
+    img: {
+      path: mediaRoot + "images",
+    }
+  },
+  defaultLogo: mediaRoot + "images/default/lotus.png",
 }
 
 export default Configuration;

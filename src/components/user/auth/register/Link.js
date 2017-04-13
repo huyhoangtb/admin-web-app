@@ -13,38 +13,38 @@ import Dialog from 'material-ui/Dialog';
  * created date 01/04/2017
  **/
 class LoginLink extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {open: false};
-        this.openLoginPopup = this.openLoginPopup.bind(this);
-        this.closeLoginPopup = this.closeLoginPopup.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+    this.openLoginPopup = this.openLoginPopup.bind(this);
+    this.closeLoginPopup = this.closeLoginPopup.bind(this);
+  }
 
-    openLoginPopup() {
-        this.setState({open: true});
-    }
+  openLoginPopup() {
+    this.setState({open: true});
+  }
 
-    closeLoginPopup() {
-        this.setState({open: false});
-    }
+  closeLoginPopup() {
+    this.setState({open: false});
+  }
 
-    render() {
-        let {intl} = this.props;
-        let label = t1(intl, "Login");
-        return (
-            <div>
-                <a  href="#" onClick={this.openLoginPopup} alt={label}> {label}</a>
-                <Dialog
-                    bodyClassName="login-modal-content"
-                    modal={true}
-                    open={this.state.open}>
-                    <a className="close-popup" href="#" onClick={this.closeLoginPopup} alt={close}>
-                        <i className="fa fa-times" aria-hidden="true"></i>
-                    </a>
-                    <LoginForm/>
-                </Dialog>
-            </div>
-        );
-    }
+  render() {
+    let {intl} = this.props;
+    let label = t1(intl, "Login");
+    return (
+      <div>
+        <a href="#" onClick={this.openLoginPopup} alt={label}> {label}</a>
+        <Dialog
+          bodyClassName="login-modal-content"
+          modal={true}
+          open={this.state.open}>
+          <a className="close-popup" href="#" onClick={this.closeLoginPopup} alt={close}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </a>
+          <LoginForm/>
+        </Dialog>
+      </div>
+    );
+  }
 }
 export default (injectI18N(LoginLink));

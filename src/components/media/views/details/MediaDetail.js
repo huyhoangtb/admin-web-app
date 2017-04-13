@@ -13,41 +13,39 @@ import ImageDetail from './ImageDetail';
  * created date 08/04/2017
  **/
 class MediaDetail extends React.Component {
-    constructor(props) {
-        super(props);
-        this.renderDetailMedia = this.renderDetailMedia.bind(this);
+  constructor(props) {
+    super(props);
+    this.renderDetailMedia = this.renderDetailMedia.bind(this);
 
+  }
+
+  renderDetailMedia(media) {
+    return <ImageDetail media={media}/>;
+    let type = media['type'];
+    if (type && type === 'dir') {
+      return;
     }
-
-    renderDetailMedia(media) {
-        console.log(media)
-        return <ImageDetail media={media}/>;
-        let type = media['type'];
-        if (type && type === 'dir') {
-            return;
-        }
-        switch (type) {
-            case 'image': {
-                return ImageDetail;
-            }
-            default:
-
-        }
+    switch (type) {
+      case 'image': {
+        return ImageDetail;
+      }
+      default:
     }
+  }
 
-    render() {
-        let {media} = this.props;
-        return (
-            <div>
-                {this.renderDetailMedia(media)}
+  render() {
+    let {media} = this.props;
+    return (
+      <div>
+        {this.renderDetailMedia(media)}
 
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 MediaDetail.childContextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+  muiTheme: React.PropTypes.object.isRequired,
 };
 
 export default connect()(injectI18N(MediaDetail));

@@ -13,28 +13,28 @@ import './stylesheet.css';
  * created date 01/04/2017
  **/
 class DialogHeader extends React.Component {
-    render() {
-        let {intl, closeOn, bodyClassName} =this.props;
-        let close = t1(intl, "close");
-        if(bodyClassName) {
-            bodyClassName += " header-dialog";
-        } else {
-            bodyClassName = "header-dialog";
-        }
-        return (
-            <Dialog
-                {...this.props}
-                onRequestClose={closeOn}
-                bodyClassName={bodyClassName}>
-                <a className="close-popup" href="#" onClick={closeOn} alt={close}>
-                    <i className="mi mi-close" aria-hidden="true"></i>
-                </a>
-                {
-                    this.props.children
-                }
-            </Dialog>
-        );
+  render() {
+    let {intl, closeOn, bodyClassName} =this.props;
+    let close = t1(intl, "close");
+    if (bodyClassName) {
+      bodyClassName += " header-dialog";
+    } else {
+      bodyClassName = "header-dialog";
     }
+    return (
+      <Dialog
+        {...this.props}
+        onRequestClose={closeOn}
+        bodyClassName={bodyClassName}>
+        <a className="close-popup" href="#" onClick={closeOn} alt={close}>
+          <i className="mi mi-close" aria-hidden="true"></i>
+        </a>
+        {
+          this.props.children
+        }
+      </Dialog>
+    );
+  }
 }
 
 export default injectI18N(DialogHeader);
