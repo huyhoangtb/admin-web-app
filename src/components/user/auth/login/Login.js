@@ -9,6 +9,7 @@ import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import {activeLoginTab, loginSuccess, activeRegisterTab} from '../actions';
 import Request from "common/network/http/Request";
+import  SocialAuth from '../social-auth/SocialAuth';
 
 /**
  * Created by Peter Hoang Nguyen
@@ -33,11 +34,8 @@ class Login extends React.Component {
     Request.get("/user/login", loginForm.values,)
       .then(response => {
         if (response.success) {
-          localStorage.setItem(process.env.REACT_APP_USER_LOCAL_STORAGE_KEY,
-            JSON.stringify(response.result));
           dispatch(loginSuccess(response.result));
         }
-
       });
   }
 
@@ -89,14 +87,7 @@ class Login extends React.Component {
                 <span>{ t1(intl, 'or_login_with') }</span>
               </div>
             </div>
-            <div className="center-block tools">
-              <a href="#" className="another-login-icon facebook">
-                <i className="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="#" className="another-login-icon googleplus">
-                <i className="fa fa-google-plus" aria-hidden="true"></i>
-              </a>
-            </div>
+            <SocialAuth/>
           </div>
 
         </div>

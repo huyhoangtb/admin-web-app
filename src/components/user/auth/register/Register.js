@@ -8,6 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import {activeLoginTab, activeRegisterTab} from 'components/user/auth/actions';
+import  SocialAuth from '../social-auth/SocialAuth';
 
 /**
  * Created by Peter Hoang Nguyen
@@ -91,14 +92,7 @@ class Register extends React.Component {
                 <span>{ t1(intl, 'or_register_with') }</span>
               </div>
             </div>
-            <div className="center-block tools">
-              <a href="#" className="another-login-icon facebook">
-                <i className="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="#" className="another-login-icon googleplus">
-                <i className="fa fa-google-plus" aria-hidden="true"></i>
-              </a>
-            </div>
+            <SocialAuth/>
           </div>
 
         </div>
