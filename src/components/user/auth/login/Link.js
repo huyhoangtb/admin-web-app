@@ -2,12 +2,9 @@
  * Created by Peter Hoang Nguyen on 4/1/2017.
  */
 import React from 'react';
-import LoginForm from 'components/user/auth/login/Login';
-import RegisterForm from 'components/user/auth/register/Register';
 import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import {activeLoginTab, openLoginDialog} from '../actions';
-import DialogNoHeader from 'components/forms/elements/custom-popup/DialogNoHeader';
 
 /**
  * Created by Peter Hoang Nguyen
@@ -40,16 +37,4 @@ class LoginLink extends React.Component {
   }
 }
 
-
-const populateStateToProps = (state) => {
-  let isLoginTabActivated = state.user.isLoginTabActivated;
-  return {
-    isLoginTabActivated: isLoginTabActivated
-  }
-};
-
-LoginLink.childContextTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
-
-export default connect(populateStateToProps)(injectI18N(LoginLink));
+export default connect()(injectI18N(LoginLink));

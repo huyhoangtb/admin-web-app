@@ -1,7 +1,6 @@
 /**
  * Created by Peter Hoang Nguyen on 4/5/2017.
  */
-import {createSelector} from 'reselect'
 import Store from 'reducers/StoreInitializer';
 
 class CommonURL {
@@ -60,7 +59,6 @@ class CommonURL {
       return form;
     }
     for (let key in params) {
-      let data = params[key];
       this.simplifyParams(form, key, params[key]);
     }
     return form;
@@ -73,11 +71,11 @@ class CommonURL {
     }
 
     param.forEach((subData) => {
-      key = key + "[]";
+      let newKey = key + "[]";
       if (Array.isArray(subData)) {
-        this.simplifyParams(form, key, subData);
+        this.simplifyParams(form, newKey, subData);
       } else {
-        form.append(key, subData);
+        form.append(newKey, subData);
       }
     })
   }

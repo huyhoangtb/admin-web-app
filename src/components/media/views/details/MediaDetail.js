@@ -2,8 +2,6 @@
  * Created by Peter Hoang Nguyen on 4/8/2017.
  */
 import React from 'react';
-import {injectI18N, t1} from "i18n";
-import {connect} from 'react-redux';
 import ImageDetail from './ImageDetail';
 
 /**
@@ -21,16 +19,16 @@ class MediaDetail extends React.Component {
 
   renderDetailMedia(media) {
     return <ImageDetail media={media}/>;
-    let type = media['type'];
-    if (type && type === 'dir') {
-      return;
-    }
-    switch (type) {
-      case 'image': {
-        return ImageDetail;
-      }
-      default:
-    }
+    // let type = media['type'];
+    // if (type && type === 'dir') {
+    //   return;
+    // }
+    // switch (type) {
+    //   case 'image': {
+    //     return ImageDetail;
+    //   }
+    //   default:
+    // }
   }
 
   render() {
@@ -38,14 +36,9 @@ class MediaDetail extends React.Component {
     return (
       <div>
         {this.renderDetailMedia(media)}
-
       </div>
     );
   }
 }
 
-MediaDetail.childContextTypes = {
-  muiTheme: React.PropTypes.object.isRequired,
-};
-
-export default connect()(injectI18N(MediaDetail));
+export default MediaDetail;

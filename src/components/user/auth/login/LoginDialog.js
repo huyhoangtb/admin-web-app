@@ -4,7 +4,6 @@
 import React from 'react';
 import LoginForm from 'components/user/auth/login/Login';
 import RegisterForm from 'components/user/auth/register/Register';
-import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import {openLoginDialog, activeLoginTab, closeLoginDialog} from '../actions';
 import DialogNoHeader from 'components/forms/elements/custom-popup/DialogNoHeader';
@@ -38,8 +37,7 @@ class LoginDialog extends React.Component {
   }
 
   render() {
-    let {intl, openLoginDialog, isLoginTabActivated} =this.props;
-    let label = t1(intl, "Login");
+    let {openLoginDialog, isLoginTabActivated} =this.props;
 
     return (
       <DialogNoHeader
@@ -69,4 +67,4 @@ LoginDialog.childContextTypes = {
   muiTheme: React.PropTypes.object.isRequired,
 };
 
-export default connect(populateStateToProps)(injectI18N(LoginDialog));
+export default connect(populateStateToProps)(LoginDialog);

@@ -7,11 +7,9 @@ import 'react-quill/dist/react-quill.min';
 import {ImageResize} from './quill-lib/ImageResize';
 
 import {connect} from 'react-redux';
-import {openMediaManagerDialog, viewMediaDetail, pushQuillJS, Parchment} from 'components/media/actions';
+import {openMediaManagerDialog, pushQuillJS} from 'components/media/actions';
 
-// Quill.register({
-//     'modules/imageResize': ImageResize
-// });
+
 const container = [
   [{'header': [1, 2, 3, 4, 5, 6, false]}],
   ['bold', 'italic', 'underline', 'strike', 'blockquote'],
@@ -24,11 +22,11 @@ const container = [
   ['clean']                                         // remove formatting button
 ];
 
-const formats = [
+const formats=[
   'header',
   'bold', 'italic', 'underline', 'strike', 'blockquote',
   'list', 'bullet', 'indent',
-  'link', 'image', , 'direction', 'color', 'background', 'font', 'align', 'clean',
+  'link', 'image', 'direction', 'color', 'background', 'font', 'align', 'clean'
 ];
 let modules = {
   toolbar: {
@@ -36,9 +34,6 @@ let modules = {
     handlers: {
       'image': (value) => {
         // props.openMediaManagerDialog();
-      },
-      'left': (value) => {
-        console.log(value);
       }
     }
   },
@@ -69,10 +64,6 @@ class QuillComponent extends React.Component {
     }
     Quill.register('modules/imageResize', ImageResize);
     return modules;
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
@@ -115,10 +106,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     openMediaManagerDialog: () => {
       dispatch(openMediaManagerDialog(true));
-      // dispatch(viewMediaDetail({
-      //     viewing: true,
-      //     data: {}
-      // }))
     },
     pushQuillJSAction: (quill, selection) => {
       dispatch(pushQuillJS(quill, selection));

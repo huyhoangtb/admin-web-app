@@ -48,10 +48,6 @@ class ContextMenu extends React.Component {
       currentNode,
       onGoToBackFolder
     } = this.props;
-    let msg = t1(intl, "msg");
-    if (mediaNode) {
-      console.log(mediaNode.relative_path_from_root);
-    }
 
     let isFolder = mediaNode && mediaNode.type && mediaNode.type.toLowerCase() === 'dir';
     let showBackControl = currentNode && currentNode.relative_path_from_root && currentNode.relative_path_from_root !== '/';
@@ -67,7 +63,7 @@ class ContextMenu extends React.Component {
         }}
       >
         <Menu>
-          {isFolder && <MenuItem primaryText="Open this folder" onTouchTap={() => {
+          {isFolder && <MenuItem primaryText={t1(intl, 'open_this_folder')} onTouchTap={() => {
             onOpenFolder(mediaNode);
             dispatch(setMediaMenuContextState(false));
           }

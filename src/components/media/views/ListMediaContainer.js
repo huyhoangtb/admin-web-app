@@ -3,11 +3,6 @@ import {connect} from 'react-redux';
 import ListItem from './ListView';
 import GridItem from './GridView';
 import {onMMShowAddFolderBox, viewMediaDetail} from "../actions";
-import DialogHeader from 'components/forms/elements/custom-popup/DialogHeader';
-const customContentStyle = {
-  width: '90%',
-  maxWidth: 'none',
-};
 
 /**
  * Created by Peter Hoang Nguyen

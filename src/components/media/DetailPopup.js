@@ -2,8 +2,6 @@
  * Created by Peter Hoang Nguyen on 4/1/2017.
  */
 import React from 'react';
-import Media from './Media';
-import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import './stylesheet.scss'
 import {viewMediaDetail} from './actions';
@@ -40,7 +38,6 @@ class DetailPopup extends React.Component {
 
   render() {
     let {
-      intl,
       viewDetailMedia
     } = this.props;
     viewDetailMedia = viewDetailMedia || {};

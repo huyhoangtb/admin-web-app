@@ -30,7 +30,7 @@ export class ImageResize {
   }
 
   handleClick(evt) {
-    if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() == 'IMG') {
+    if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG') {
       if (this.img === evt.target) {
         // we are already focused on this image
         return;
@@ -171,7 +171,7 @@ export class ImageResize {
       return;
     }
     // update image size
-    if (this.dragBox == this.boxes[0] || this.dragBox == this.boxes[3]) {
+    if (this.dragBox === this.boxes[0] || this.dragBox === this.boxes[3]) {
       // left-side resize handler; draging right shrinks image
       this.img.width = Math.round(this.preDragWidth - evt.clientX - this.dragStartX);
     }

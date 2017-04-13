@@ -25,6 +25,6 @@ const Store = createStore(
 devToolsEnhancer ? devToolsEnhancer() : f => f)
 );
 // begin periodically persisting the store
-persistStore(Store);
+persistStore(Store, {whitelist: ['user']});
 sagaMiddleware.run(SagaRegister);
 export default Store;

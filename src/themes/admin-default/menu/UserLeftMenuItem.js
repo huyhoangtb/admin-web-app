@@ -21,7 +21,7 @@ class UserLeftMenuItem extends React.Component {
 
 
   componentsDidMount() {
-    let {intl, userInfo} =this.props;
+    let {userInfo} =this.props;
     if(!userInfo || !userInfo.token) {
       let {dispatch} =this.props;
       dispatch(openLoginDialog());
@@ -33,7 +33,7 @@ class UserLeftMenuItem extends React.Component {
     return (
       <div className="user-info-panel menu-panel clearfix">
         <div className="user-avatar pull-left">
-          <img src={userInfo.avatar}/>
+          <img src={userInfo.avatar} alt="avatar"/>
         </div>
         <div className="user-action pull-left">
           <div className="full-name">{userInfo.name}</div>

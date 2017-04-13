@@ -13,7 +13,6 @@ import {mediaListRootURL, mediaListURL, mediaUploadURL} from './DefinedUrl';
 import {onMMDataLoaded, setMediaMenuContextState} from "./actions";
 import {connect} from 'react-redux';
 import Node from './common/Node';
-import axios from 'axios';
 import Request from "common/network/http/Request";
 
 /**

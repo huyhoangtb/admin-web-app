@@ -28,7 +28,7 @@ class TopMenuApp extends React.Component {
         <div className="ui-left-frame ui-top-left-menu pull-left">
           <div className="ui-center-block text-center">
             <Link className="ui-link" to="/">
-              <img className="ui-small-logo" src={config.defaultLogo}/>
+              <img className="ui-small-logo" src={config.defaultLogo} alt="logo"/>
             </Link>
           </div>
         </div>

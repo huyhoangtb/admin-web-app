@@ -33,16 +33,16 @@ class MyEditor extends React.Component {
 
   render() {
     return (
-      <Editor
-        editorState={this.state.editorState}
-        handleKeyCommand={(command) => {
-          console.log(command);
-          {/*this.handleKeyCommand(command);*/
-          }
-        }}
-        onChange={this.onChange}
-        keyBindingFn={myKeyBindingFn}
-      />
+      <div>
+        <Editor
+          editorState={this.state.editorState}
+          handleKeyCommand={(command) => {
+            this.handleKeyCommand(command);
+          }}
+          onChange={this.onChange}
+          keyBindingFn={myKeyBindingFn}
+        />
+      </div>
     );
   }
 }

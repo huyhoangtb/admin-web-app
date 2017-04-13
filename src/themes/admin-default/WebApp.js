@@ -2,7 +2,6 @@
  * Created by Peter Hoang Nguyen on 4/6/2017.
  */
 import React from 'react';
-import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import './stylesheet.css';
 import {Route} from 'react-router-dom';
@@ -47,13 +46,12 @@ class WebApp extends React.Component {
   }
 
   render() {
-    let {intl, webApp} =this.props;
     let scrollStyle = {
       height: '100%',
       width: '100%'
     };
     let scrollSpeed = 100;
-    let data = (webApp && webApp.values) ? webApp.values.text : '';
+
     return (
       <div className="ui-app clearfix">
         <TopMenuApp/>
@@ -73,10 +71,7 @@ class WebApp extends React.Component {
                 <MediaDetailPopup/>
                 <Editor/>
 
-
                 <Route path="/test" component={Test}/>
-                {/*<QuillRickText name="text" theme="snow" />*/}
-                {data}
               </div>
             </ScrollArea>
 
@@ -94,4 +89,4 @@ let mapPropsToState = (state) => {
 }
 export default connect(mapPropsToState)(reduxForm({
   form: 'webApp',
-})(injectI18N(WebApp)));
+})(WebApp));

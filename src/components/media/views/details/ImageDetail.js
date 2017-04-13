@@ -61,7 +61,7 @@ class Image extends React.Component {
           <div className="clearfix">
             <div className="image-panel  pull-left">
               <div className="center-block-panel">
-                <img ref="imgDetail" onLoad={this.onImgLoad}
+                <img ref="imgDetail" onLoad={this.onImgLoad} alt="detail"
                      src={media.path}/>
               </div>
             </div>

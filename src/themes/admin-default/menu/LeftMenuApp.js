@@ -5,7 +5,6 @@ import React from 'react';
 import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import ScrollArea from 'react-scrollbar';
-import {Link} from 'react-router-dom';
 import UserLeftMenuItem from './UserLeftMenuItem';
 /**
  * Created by Peter Hoang Nguyen
@@ -31,7 +30,7 @@ class LeftMenuApp extends React.Component {
           <UserLeftMenuItem/>
           <div className="ui-left-menu-list">
             <div className="menu-header menu-panel">
-              Chức năng
+              {t1(intl, 'functions')}
             </div>
           </div>
         </div>

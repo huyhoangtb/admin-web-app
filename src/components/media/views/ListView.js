@@ -12,7 +12,6 @@ import Node from "../common/Node";
 import {setMediaMenuContextState} from "../actions";
 import NewFolder from "./NewFolder";
 import  MediaContextMenu from '../controls/ContextMenu';
-import ScrollArea from 'react-scrollbar';
 /**
  * Created by Peter Hoang Nguyen
  * Email: vntopmas@gmail.com
@@ -52,11 +51,7 @@ class ListItem extends React.Component {
     let size = t1(intl, "size");
     let type = t1(intl, "type");
     let items = (mediaDB && mediaDB.data) ? mediaDB.data : [];
-    let scrollStyle = {
-      height: '400px',
-      width: '100%'
-    };
-    let scrollSpeed = 100;
+
     return (
       <div>
 
