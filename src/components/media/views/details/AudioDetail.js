@@ -48,7 +48,6 @@ class Audio extends React.Component {
 
   render() {
     let {intl, media, initialValues} =this.props;
-    console.log('xxxxxxxxxxxxxxxxxx' + media.name);
     let file = media.name;
     if(file.indexOf(".mp3") == file.length - 4) {
       return (
