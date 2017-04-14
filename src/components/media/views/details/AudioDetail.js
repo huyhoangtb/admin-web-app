@@ -22,13 +22,13 @@ class Audio extends React.Component {
   }
 
   closeMediaPopup() {
-    let {dispatch} =this.props;
+    let {dispatch} = this.props;
     dispatch(viewMediaDetail({
       viewing: false
     }))
   }
 
-  onAudioLoad({target:audio}) {
+  onAudioLoad({target: audio}) {
     let {dispatch} = this.props;
     dispatch(change('audioDetail', 'width', audio.offsetWidth));
     dispatch(change('audioDetail', 'height', audio.offsetHeight));
@@ -47,42 +47,38 @@ class Audio extends React.Component {
   }
 
   render() {
-    let {intl, media, initialValues} =this.props;
-    let file = media.name;
-    if(file.indexOf(".mp3") == file.length - 4) {
-      return (
-        <div className="audio-detail clearfix">
-          {media &&
-          <div>
-            <div className="clearfix">
-              <div className="audio-panel  pull-left">
-                <div className="center-block-panel">
-                  <audio controls>
-                    <source src={media.path} type="audio/ogg"/>
-                    <source src={media.path} type="audio/mpeg"/>
-                  </audio>
-                </div>
+    let {intl, media, initialValues} = this.props;
+    return (
+      <div className="audio-detail clearfix">
+        {media &&
+        <div>
+          <div className="clearfix">
+            <div className="audio-panel  pull-left">
+              <div className="center-block-panel">
+                <audio controls>
+                  <source src={media.path} type="audio/ogg"/>
+                  <source src={media.path} type="audio/mpeg"/>
+                </audio>
               </div>
             </div>
-            <div>
-              <FlatButton className="margin-right15px"
-                          label="Cancel"
-                          primary={true}
-                          onTouchTap={this.closeMediaPopup}
-              />
-              <FlatButton
-                label="Submit"
-                primary={true}
-                keyboardFocused={true}
-                onTouchTap={this.chooseAudio()}
-              />
-            </div>
           </div>
-          }
+          <div>
+            <FlatButton className="margin-right15px"
+                        label="Cancel"
+                        primary={true}
+                        onTouchTap={this.closeMediaPopup}
+            />
+            <FlatButton
+              label="Submit"
+              primary={true}
+              keyboardFocused={true}
+              onTouchTap={this.chooseAudio()}
+            />
+          </div>
         </div>
-
-      );
-    }
+        }
+      </div>
+    );
   }
 }
 

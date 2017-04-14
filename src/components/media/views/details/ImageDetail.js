@@ -7,7 +7,8 @@ import {connect} from 'react-redux';
 import  {TextField} from 'components/forms/elements';
 import FlatButton from 'material-ui/FlatButton';
 import {viewMediaDetail} from '../../actions';
-import {reduxForm} from 'redux-form'
+import {reduxForm} from 'redux-form';
+import {openMediaManagerDialog} from '../../actions';
 import {Quill} from 'react-quill';
 import {change} from 'redux-form';
 
@@ -30,7 +31,8 @@ class Image extends React.Component {
     let {dispatch} =this.props;
     dispatch(viewMediaDetail({
       viewing: false
-    }))
+    }));
+    dispatch(openMediaManagerDialog(true));
   }
 
   onImgLoad({target:img}) {
@@ -125,8 +127,7 @@ const mapStateToProp = (state) => {
     media: viewDetailMedia.data,
     currentRichText: state.mm.currentRichText
   })
-}
+};
 
-Image = connect(mapStateToProp
-)(Image)
+Image = connect(mapStateToProp)(Image);
 export default Image;

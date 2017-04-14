@@ -3,8 +3,7 @@ import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import {viewMediaDetail} from '../../actions';
-import ReactScrollbar from 'react-scrollbar-js';
-import {reduxForm} from 'redux-form';
+import {reduxForm} from 'redux-form'
 import {Quill} from 'react-quill';
 import {change} from 'redux-form';
 /**
@@ -13,32 +12,32 @@ import {change} from 'redux-form';
  * Tel: 0966298666
  * created date 08/04/2017
  **/
-class Pdf extends React.Component {
+class Word extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.closeMediaPopup = this.closeMediaPopup.bind(this);
-    this.choosePdf = this.choosePdf.bind(this);
-    this.onPdfLoad = this.onPdfLoad.bind(this);
+    this.chooseWord = this.chooseWord.bind(this);
+    this.onWordLoad = this.onWordLoad.bind(this);
   }
 
   closeMediaPopup() {
-    let {dispatch} = this.props;
+    let {dispatch} =this.props;
     dispatch(viewMediaDetail({
       viewing: false
     }))
   }
 
-  onPdfLoad({target: pdf}) {
+  onWordLoad({target:word}) {
     let {dispatch} = this.props;
-    dispatch(change('pdfDetail', 'width', pdf.offsetWidth));
-    dispatch(change('pdfDetail', 'height', pdf.offsetHeight));
+    dispatch(change('wordDetail', 'width', word.offsetWidth));
+    dispatch(change('wordDetail', 'height', word.offsetHeight));
   }
 
-  choosePdf() {
+  chooseWord() {
     let {dispatch, currentRichText, media} = this.props;
-    // let range = currentRichText.selection;
-    // currentRichText.quillJs.insertEmbed(range.index, 'pdf', {
+    let range = currentRichText.selection;
+    // currentRichText.quillJs.insertEmbed(range.index, 'word', {
     //   src: media.path,
     //   width: 300
     // }, Quill.sources.USER);
@@ -48,24 +47,15 @@ class Pdf extends React.Component {
   }
 
   render() {
-    let {intl, media, initialValues} = this.props;
-    const myScrollbar = {
-      width: '100%',
-      height: 'auto',
-    };
+    let {intl, media, initialValues} =this.props;
     return (
-      <div className="pdf-detail clearfix">
+      <div className="audio-detail clearfix">
         {media &&
         <div>
-
           <div className="clearfix">
-            <div className="pdf-panel  pull-left">
+            <div className="audio-panel  pull-left">
               <div className="center-block-panel">
-                <ReactScrollbar style={myScrollbar}>
-                  <div className="should-have-a-children scroll-me">
-                    <iframe ref="pdfDetail" onLoad={this.onPdfLoad} src={media.path} frameborder="0"></iframe>
-                  </div>
-                </ReactScrollbar>
+                <a href={media.path} download>Download File To Preview</a>
               </div>
             </div>
           </div>
@@ -79,7 +69,7 @@ class Pdf extends React.Component {
               label="Submit"
               primary={true}
               keyboardFocused={true}
-              onTouchTap={this.choosePdf()}
+              onTouchTap={this.chooseWord()}
             />
           </div>
         </div>
@@ -89,13 +79,13 @@ class Pdf extends React.Component {
   }
 }
 
-Pdf.childContextTypes = {
+Word.childContextTypes = {
   muiTheme: React.PropTypes.object.isRequired,
 };
 
-Pdf = reduxForm({
-  form: 'pdfDetail',
-})(injectI18N(Pdf));
+Word = reduxForm({
+  form: 'wordDetail',
+})(injectI18N(Word));
 
 const mapStateToProp = (state) => {
   let {viewDetailMedia} = state.mm;
@@ -107,11 +97,11 @@ const mapStateToProp = (state) => {
       width: 0,
       height: 0
     },
-    pdfDetailForm: state.form.pdfDetail,
+    wordDetailForm: state.form.wordDetail,
     media: viewDetailMedia.data,
     currentRichText: state.mm.currentRichText
   })
 }
 
-Pdf = connect(mapStateToProp)(Pdf);
-export default Pdf;
+Word = connect(mapStateToProp)(Word);
+export default Word;

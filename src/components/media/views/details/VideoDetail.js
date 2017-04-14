@@ -55,7 +55,7 @@ class Video extends React.Component {
           <div className="clearfix">
             <div className="audio-panel pull-left">
               <div className="center-block-panel">
-                <video width="400" controls>
+                <video width="500" controls>
                   <source onLoad={this.onImgLoad} src={media.path} type="video/mp4" />
                 </video>
               </div>

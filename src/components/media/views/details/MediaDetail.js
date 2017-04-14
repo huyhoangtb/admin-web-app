@@ -7,6 +7,7 @@ import AudioDetail from './AudioDetail';
 import PdfDetail from './PdfDetail';
 import VideoDetail from './VideoDetail';
 import ExcelDetail from './ExcelDetail';
+import WordDetail from './WordDetail';
 /**
  * Created by Peter Hoang Nguyen
  * Email: vntopmas@gmail.com
@@ -28,7 +29,7 @@ class MediaDetail extends React.Component {
       case 'image':
         return <ImageDetail media={media}/>;
         break;
-      case 'uknown':
+      case 'audio':
         return <AudioDetail media={media}/>;
         break;
       case 'pdf':
@@ -39,6 +40,9 @@ class MediaDetail extends React.Component {
         break;
       case 'excel':
         return <ExcelDetail media={media}/>;
+        break;
+      case 'word':
+        return <WordDetail media={media}/>;
         break;
       default:
     }

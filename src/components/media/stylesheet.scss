@@ -1,29 +1,33 @@
 @import "../../configs/css-configuration.scss";
 
 .ui-media-panel {
-  .audio-detail{width: 100%;text-align: center;
-    .audio-panel{
+
+  .audio-detail {
+    width: 100%;
+    text-align: center;
+    .audio-panel {
       padding: 30px;
       width: 100%;
-      .center-block-panel{
+      .center-block-panel {
         border: 1px solid #f1f1f1;
-        audio{
+        audio {
           margin: 0 auto;
         }
-        video{
+        video {
           margin: 30px auto;
         }
-        a{
+        a {
           width: 100%;
         }
       }
     }
   }
-  .pdf-detail{
+
+  .pdf-detail {
     width: 100%;
-    .pdf-panel{
+    .pdf-panel {
       width: 100%;
-      .center-block-panel iframe{
+      .center-block-panel iframe {
         min-height: 500px;
         width: 100%;
       }

@@ -77,9 +77,9 @@ const populateStateToProps = (state) => {
     isLoginTabActivated: isLoginTabActivated,
     openMediaDialog: state.mm.openMediaDialog,
     isViewing: state.mm.isViewing,
-
   }
 };
+
 MediaPopup.childContextTypes = {
   muiTheme: React.PropTypes.object.isRequired,
 };
