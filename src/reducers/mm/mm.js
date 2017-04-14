@@ -36,7 +36,6 @@ const mmInitialState = {
 export const MM = (state = mmInitialState, action) => {
   let newState = {};
   switch (action.type) {
-
     case MM_SWITCH_VIEW_TYPE:
       newState = {
         ...state,

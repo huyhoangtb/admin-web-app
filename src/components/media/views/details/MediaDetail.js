@@ -3,7 +3,10 @@
  */
 import React from 'react';
 import ImageDetail from './ImageDetail';
-
+import AudioDetail from './AudioDetail';
+import PdfDetail from './PdfDetail';
+import VideoDetail from './VideoDetail';
+import ExcelDetail from './ExcelDetail';
 /**
  * Created by Peter Hoang Nguyen
  * Email: vntopmas@gmail.com
@@ -14,21 +17,31 @@ class MediaDetail extends React.Component {
   constructor(props) {
     super(props);
     this.renderDetailMedia = this.renderDetailMedia.bind(this);
-
   }
 
   renderDetailMedia(media) {
-    return <ImageDetail media={media}/>;
-    // let type = media['type'];
-    // if (type && type === 'dir') {
-    //   return;
-    // }
-    // switch (type) {
-    //   case 'image': {
-    //     return ImageDetail;
-    //   }
-    //   default:
-    // }
+    let type = media['type'];
+    if (type && type === 'dir') {
+      return;
+    }
+    switch (type) {
+      case 'image':
+        return <ImageDetail media={media}/>;
+        break;
+      case 'uknown':
+        return <AudioDetail media={media}/>;
+        break;
+      case 'pdf':
+        return <PdfDetail media={media}/>;
+        break;
+      case 'video':
+        return <VideoDetail media={media}/>;
+        break;
+      case 'excel':
+        return <ExcelDetail media={media}/>;
+        break;
+      default:
+    }
   }
 
   render() {

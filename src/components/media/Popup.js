@@ -16,7 +16,7 @@ import ImageDetail from './views/details/ImageDetail';
  * created date 01/04/2017
  **/
 const customContentStyle = {
-  width: '90%',
+  width: '60%',
   maxWidth: 'none',
 };
 

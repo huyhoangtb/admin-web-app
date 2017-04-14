@@ -1,3 +1,26 @@
+.ui-media-panel .audio-detail {
+  width: 100%;
+  text-align: center; }
+  .ui-media-panel .audio-detail .audio-panel {
+    padding: 30px;
+    width: 100%; }
+    .ui-media-panel .audio-detail .audio-panel .center-block-panel {
+      border: 1px solid #f1f1f1; }
+      .ui-media-panel .audio-detail .audio-panel .center-block-panel audio {
+        margin: 0 auto; }
+      .ui-media-panel .audio-detail .audio-panel .center-block-panel video {
+        margin: 30px auto; }
+      .ui-media-panel .audio-detail .audio-panel .center-block-panel a {
+        width: 100%; }
+
+.ui-media-panel .pdf-detail {
+  width: 100%; }
+  .ui-media-panel .pdf-detail .pdf-panel {
+    width: 100%; }
+    .ui-media-panel .pdf-detail .pdf-panel .center-block-panel iframe {
+      min-height: 500px;
+      width: 100%; }
+
 .ui-media-panel .img-detail {
   padding: 20px; }
   .ui-media-panel .img-detail .image-panel {

@@ -1,29 +1,24 @@
-/**
- * Created by Peter Hoang Nguyen on 4/8/2017.
- */
 import React from 'react';
 import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
-import  {TextField} from 'components/forms/elements';
 import FlatButton from 'material-ui/FlatButton';
 import {viewMediaDetail} from '../../actions';
 import {reduxForm} from 'redux-form'
 import {Quill} from 'react-quill';
 import {change} from 'redux-form';
-
 /**
  * Created by Peter Hoang Nguyen
  * Email: vntopmas@gmail.com
  * Tel: 0966298666
  * created date 08/04/2017
  **/
-class Image extends React.Component {
+class Excel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.closeMediaPopup = this.closeMediaPopup.bind(this);
-    this.chooseImage = this.chooseImage.bind(this);
-    this.onImgLoad = this.onImgLoad.bind(this);
+    this.chooseExcel = this.chooseExcel.bind(this);
+    this.onExcelLoad = this.onExcelLoad.bind(this);
   }
 
   closeMediaPopup() {
@@ -33,53 +28,35 @@ class Image extends React.Component {
     }))
   }
 
-  onImgLoad({target:img}) {
+  onExcelLoad({target:excel}) {
     let {dispatch} = this.props;
-    dispatch(change('imageDetail', 'width', img.offsetWidth));
-    dispatch(change('imageDetail', 'height', img.offsetHeight));
+    dispatch(change('excelDetail', 'width', excel.offsetWidth));
+    dispatch(change('excelDetail', 'height', excel.offsetHeight));
   }
 
-  chooseImage() {
+  chooseExcel() {
     let {dispatch, currentRichText, media} = this.props;
     let range = currentRichText.selection;
-    currentRichText.quillJs.insertEmbed(range.index, 'image', {
-      src: media.path,
-      width: 300
-    }, Quill.sources.USER);
-    dispatch(viewMediaDetail({
-      viewing: false
-    }));
+    // currentRichText.quillJs.insertEmbed(range.index, 'excel', {
+    //   src: media.path,
+    //   width: 300
+    // }, Quill.sources.USER);
+    // dispatch(viewMediaDetail({
+    //   viewing: false
+    // }));
   }
 
   render() {
     let {intl, media, initialValues} =this.props;
     return (
-      <div className="img-detail clearfix">
+      <div className="audio-detail clearfix">
         {media &&
         <div>
           <div className="clearfix">
-            <div className="image-panel  pull-left">
+            <div className="audio-panel  pull-left">
               <div className="center-block-panel">
-                <img ref="imgDetail" onLoad={this.onImgLoad} alt="detail"
-                     src={media.path}/>
+                <a href={media.path} download>Download File To Preview</a>
               </div>
-            </div>
-            <div className="ui-img-info">
-              <TextField fullWidth={true} name="title"
-                         floatingLabelText={ t1(intl, 'title')}
-                         hintText={ t1(intl, 'title')}/>
-              <TextField fullWidth={true} name="alt"
-                         floatingLabelText={ t1(intl, 'Alt')}
-                         hintText={ t1(intl, 'alt')}/>
-
-              <TextField className="margin-right15px"
-                         floatingLabelText="width"
-                         hintText={ t1(intl, 'width')}
-                         style={{width: "100px"}} value={43324324}/>
-
-              <TextField name="height" style={{width: "100px"}}
-                         floatingLabelText="height"
-                         hintText={ t1(intl, 'height')}/>
             </div>
           </div>
           <div>
@@ -92,24 +69,23 @@ class Image extends React.Component {
               label="Submit"
               primary={true}
               keyboardFocused={true}
-              onTouchTap={this.chooseImage}
+              onTouchTap={this.chooseExcel()}
             />
           </div>
         </div>
         }
       </div>
-
     );
   }
 }
 
-Image.childContextTypes = {
+Excel.childContextTypes = {
   muiTheme: React.PropTypes.object.isRequired,
 };
 
-Image = reduxForm({
-  form: 'imageDetail',
-})(injectI18N(Image));
+Excel = reduxForm({
+  form: 'excelDetail',
+})(injectI18N(Excel));
 
 const mapStateToProp = (state) => {
   let {viewDetailMedia} = state.mm;
@@ -121,12 +97,11 @@ const mapStateToProp = (state) => {
       width: 0,
       height: 0
     },
-    imageDetailForm: state.form.imageDetail,
+    excelDetailForm: state.form.excelDetail,
     media: viewDetailMedia.data,
     currentRichText: state.mm.currentRichText
   })
 }
 
-Image = connect(mapStateToProp
-)(Image)
-export default Image;
+Excel = connect(mapStateToProp)(Excel);
+export default Excel;
