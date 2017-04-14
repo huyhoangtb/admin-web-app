@@ -3,9 +3,10 @@
  */
 import React from 'react';
 import {connect} from 'react-redux';
-import './stylesheet.scss'
+import './stylesheet.scss';
 import {viewMediaDetail} from './actions';
 import DialogNoHeader from 'components/forms/elements/custom-popup/DialogNoHeader';
+import {openMediaManagerDialog} from './actions';
 import MediaDetail from './views/details/MediaDetail';
 
 /**
@@ -32,7 +33,8 @@ class DetailPopup extends React.Component {
     let {dispatch} =this.props;
     dispatch(viewMediaDetail({
       viewing: false
-    }))
+    }));
+    dispatch(openMediaManagerDialog(true));
   }
 
 

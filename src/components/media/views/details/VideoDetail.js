@@ -1,24 +1,18 @@
-/**
- * Created by Peter Hoang Nguyen on 4/8/2017.
- */
 import React from 'react';
 import {injectI18N, t1} from "i18n";
 import {connect} from 'react-redux';
-import  {TextField} from 'components/forms/elements';
 import FlatButton from 'material-ui/FlatButton';
 import {viewMediaDetail} from '../../actions';
-import {reduxForm} from 'redux-form';
-import {openMediaManagerDialog} from '../../actions';
+import {reduxForm} from 'redux-form'
 import {Quill} from 'react-quill';
 import {change} from 'redux-form';
-
 /**
  * Created by Peter Hoang Nguyen
  * Email: vntopmas@gmail.com
  * Tel: 0966298666
  * created date 08/04/2017
  **/
-class Image extends React.Component {
+class Video extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -31,14 +25,13 @@ class Image extends React.Component {
     let {dispatch} =this.props;
     dispatch(viewMediaDetail({
       viewing: false
-    }));
-    dispatch(openMediaManagerDialog(true));
+    }))
   }
 
   onImgLoad({target:img}) {
     let {dispatch} = this.props;
-    dispatch(change('imageDetail', 'width', img.offsetWidth));
-    dispatch(change('imageDetail', 'height', img.offsetHeight));
+    dispatch(change('videoDetail', 'width', img.offsetWidth));
+    dispatch(change('videoDetail', 'height', img.offsetHeight));
   }
 
   chooseImage() {
@@ -56,32 +49,16 @@ class Image extends React.Component {
   render() {
     let {intl, media, initialValues} =this.props;
     return (
-      <div className="img-detail clearfix">
+      <div className="audio-detail clearfix">
         {media &&
         <div>
           <div className="clearfix">
-            <div className="image-panel  pull-left">
+            <div className="audio-panel pull-left">
               <div className="center-block-panel">
-                <img ref="imgDetail" onLoad={this.onImgLoad} alt="detail"
-                     src={media.path}/>
+                <video width="500" controls>
+                  <source onLoad={this.onImgLoad} src={media.path} type="video/mp4" />
+                </video>
               </div>
-            </div>
-            <div className="ui-img-info">
-              <TextField fullWidth={true} name="title"
-                         floatingLabelText={ t1(intl, 'title')}
-                         hintText={ t1(intl, 'title')}/>
-              <TextField fullWidth={true} name="alt"
-                         floatingLabelText={ t1(intl, 'Alt')}
-                         hintText={ t1(intl, 'alt')}/>
-
-              <TextField className="margin-right15px"
-                         floatingLabelText="width"
-                         hintText={ t1(intl, 'width')}
-                         style={{width: "100px"}} value={43324324}/>
-
-              <TextField name="height" style={{width: "100px"}}
-                         floatingLabelText="height"
-                         hintText={ t1(intl, 'height')}/>
             </div>
           </div>
           <div>
@@ -100,18 +77,17 @@ class Image extends React.Component {
         </div>
         }
       </div>
-
     );
   }
 }
 
-Image.childContextTypes = {
+Video.childContextTypes = {
   muiTheme: React.PropTypes.object.isRequired,
 };
 
-Image = reduxForm({
-  form: 'imageDetail',
-})(injectI18N(Image));
+Video = reduxForm({
+  form: 'videoDetail',
+})(injectI18N(Video));
 
 const mapStateToProp = (state) => {
   let {viewDetailMedia} = state.mm;
@@ -123,11 +99,11 @@ const mapStateToProp = (state) => {
       width: 0,
       height: 0
     },
-    imageDetailForm: state.form.imageDetail,
+    videoDetailForm: state.form.videoDetail,
     media: viewDetailMedia.data,
     currentRichText: state.mm.currentRichText
   })
-};
+}
 
-Image = connect(mapStateToProp)(Image);
-export default Image;
+Video = connect(mapStateToProp)(Video);
+export default Video;
